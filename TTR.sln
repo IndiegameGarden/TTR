@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTR", "TTR\TTR.csproj", "{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C} = {CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTRContent", "TTRContent\TTRContent.contentproj", "{6716C609-35D7-48F9-BCFB-64A27CE3B594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTMusicEngine", "TTMusicEngine\TTMusicEngine.csproj", "{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTMusicEngineTest", "TTMusicEngineTest\TTMusicEngineTest.csproj", "{25AE6F6B-1B06-4A3C-A110-FBE68B571833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTengine", "..\TTengine\TTengine\TTengine.csproj", "{616035D5-3927-44CD-BD41-2EEE846AC3A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Profile|x86 = Profile|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}.Debug|x86.ActiveCfg = Debug|x86
+		{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}.Debug|x86.Build.0 = Debug|x86
+		{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}.Profile|x86.ActiveCfg = Profile|x86
+		{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}.Profile|x86.Build.0 = Profile|x86
+		{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}.Release|x86.ActiveCfg = Release|x86
+		{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}.Release|x86.Build.0 = Release|x86
+		{6716C609-35D7-48F9-BCFB-64A27CE3B594}.Debug|x86.ActiveCfg = Debug|x86
+		{6716C609-35D7-48F9-BCFB-64A27CE3B594}.Profile|x86.ActiveCfg = Release|x86
+		{6716C609-35D7-48F9-BCFB-64A27CE3B594}.Release|x86.ActiveCfg = Release|x86
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}.Debug|x86.ActiveCfg = Debug|x86
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}.Debug|x86.Build.0 = Debug|x86
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}.Profile|x86.ActiveCfg = Profile|x86
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}.Profile|x86.Build.0 = Profile|x86
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}.Release|x86.ActiveCfg = Release|x86
+		{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}.Release|x86.Build.0 = Release|x86
+		{25AE6F6B-1B06-4A3C-A110-FBE68B571833}.Debug|x86.ActiveCfg = Debug|x86
+		{25AE6F6B-1B06-4A3C-A110-FBE68B571833}.Debug|x86.Build.0 = Debug|x86
+		{25AE6F6B-1B06-4A3C-A110-FBE68B571833}.Profile|x86.ActiveCfg = Profile|x86
+		{25AE6F6B-1B06-4A3C-A110-FBE68B571833}.Profile|x86.Build.0 = Profile|x86
+		{25AE6F6B-1B06-4A3C-A110-FBE68B571833}.Release|x86.ActiveCfg = Release|x86
+		{25AE6F6B-1B06-4A3C-A110-FBE68B571833}.Release|x86.Build.0 = Release|x86
+		{616035D5-3927-44CD-BD41-2EEE846AC3A3}.Debug|x86.ActiveCfg = Debug|x86
+		{616035D5-3927-44CD-BD41-2EEE846AC3A3}.Debug|x86.Build.0 = Debug|x86
+		{616035D5-3927-44CD-BD41-2EEE846AC3A3}.Profile|x86.ActiveCfg = Release|x86
+		{616035D5-3927-44CD-BD41-2EEE846AC3A3}.Profile|x86.Build.0 = Release|x86
+		{616035D5-3927-44CD-BD41-2EEE846AC3A3}.Release|x86.ActiveCfg = Release|x86
+		{616035D5-3927-44CD-BD41-2EEE846AC3A3}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
