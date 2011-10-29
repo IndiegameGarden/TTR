@@ -1,16 +1,16 @@
+// (c) 2010-2011 TranceTrance.com. Distributed under the FreeBSD license in LICENSE.txt
 using System;
+using Microsoft.Xna.Framework;
 
-namespace TTRSandbox
+namespace TTR
 {
 #if WINDOWS || XBOX
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (Game game = new TTRGame())
+            //using (Game game = new TTRShaderTest())
             {
                 game.Run();
             }

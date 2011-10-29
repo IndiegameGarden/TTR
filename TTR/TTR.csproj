@@ -157,7 +157,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="soundevents\VolDimSoundEvent.cs" />
     <Compile Include="TTRGame.cs" />
-    <Compile Include="TTRShaderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
