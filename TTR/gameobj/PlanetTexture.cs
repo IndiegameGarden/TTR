@@ -45,13 +45,14 @@ namespace TTR.gameobj
             //LoadTexture("grid");
 
             //centerParam.SetValue(new Vector2(0.5f, 0.1f)); // test
+            VertexShaderInit(effect);
         }
 
         protected override void OnUpdate(ref UpdateParams p)
         {
             base.OnUpdate(ref p);
             
-            depthParam.SetValue( ampl * (float) Math.Sin((float) MathHelper.TwoPi * 0.3f * SimTime));
+            //depthParam.SetValue( ampl * (float) Math.Sin((float) MathHelper.TwoPi * 0.3f * SimTime));
         }
 
         protected override void OnDraw(ref DrawParams p)
