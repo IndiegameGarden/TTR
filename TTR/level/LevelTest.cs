@@ -80,11 +80,11 @@ namespace TTR.level
             shake.StartTime = 5f;
             //this.Add(shake);
 
-            /*
+            
             PlanetTexture p = new PlanetTexture();
             p.Position = new Vector2(0.65f, 0.5f);
             Add(p);
-             */
+            
 
         }
 

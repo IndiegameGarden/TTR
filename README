@@ -5,4 +5,7 @@ For more information go to http://www.trancetrance.com/
 For TTengine latest code https://github.com/trancetrance/TTengine
 
 Distributed under a FreeBSD license. For license conditions see LICENSE.txt 
-and the copyright notice in source files.
+and the copyright notice in source files. Some files may be subject to
+other licenses, see each file header for license information per source file.
+
+Requires currently the FMOD audio library for C# http://www.fmod.org/

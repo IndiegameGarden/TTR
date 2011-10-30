@@ -73,14 +73,6 @@ namespace TTR
             spriteBatch = new SpriteBatch(Screen.graphicsDevice);
 
             VertexShaderInit(eff);
-            /*
-            // vertex shader init
-            //Viewport viewport = screen.graphicsDevice.Viewport;
-            Matrix projection = Matrix.CreateOrthographicOffCenter(0, screen.Width, screen.Height, 0, 0, 1);
-            Matrix halfPixelOffset = Matrix.CreateTranslation(-0.5f, -0.5f, 0);
-            Matrix m = halfPixelOffset * projection;
-            eff.Parameters["MatrixTransform"].SetValue(m);
-            */
         }
 
         /// Reset the stars and the parallax eff.

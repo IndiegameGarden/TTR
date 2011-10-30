@@ -51,7 +51,7 @@ namespace TTR.gameobj
         {
             base.OnUpdate(ref p);
             
-            depthParam.SetValue( ampl * (float) Math.Sin((float) MathHelper.TwoPi * 0.3f * SimTime));
+            //depthParam.SetValue( ampl * (float) Math.Sin((float) MathHelper.TwoPi * 0.3f * SimTime));
         }
 
         protected override void OnDraw(ref DrawParams p)
