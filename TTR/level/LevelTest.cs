@@ -83,8 +83,9 @@ namespace TTR.level
             
             PlanetTexture p = new PlanetTexture();
             p.Position = new Vector2(0.65f, 0.5f);
+            p.LayerDepth = 0.0f;
             Add(p);
-            
+             
 
         }
 

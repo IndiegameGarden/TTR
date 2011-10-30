@@ -11,6 +11,8 @@ float Time = 0;
 float PosToTimeScaling = 15;
 // threshold variation tbd
 float ThVar = 0;
+// vertex shader input, http://forums.create.msdn.com/forums/p/71866/438467.aspx
+float4x4 MatrixTransform : register(vs, c0);
 
 sampler TextureSampler : register(s0) = 
 sampler_state
@@ -167,6 +169,14 @@ float4 PixelShaderFunction_Draw(float2 texCoord : TEXCOORD0) : COLOR0
 	return pnew;
 }
 
+// see http://forums.create.msdn.com/forums/p/71866/438467.aspx
+void SpriteVertexShader(inout float4 color    : COLOR0, 
+                        inout float2 texCoord : TEXCOORD0, 
+                        inout float4 position : SV_Position) 
+{ 
+    position = mul(position, MatrixTransform); 
+} 
+
 /*
  * initial filling of the GoL update buffer from a texture/bitmap
  */
@@ -175,6 +185,7 @@ technique BufferInit
     pass Pass1
     {
         PixelShader = compile ps_3_0 PixelShaderFunction_BufferInit();
+		VertexShader = compile vs_3_0 SpriteVertexShader();
     }
 }
 
@@ -184,6 +195,7 @@ technique Update
     pass Pass1
     {
         PixelShader = compile ps_3_0 PixelShaderFunction_Update();
+		VertexShader = compile vs_3_0 SpriteVertexShader();
     }
 }
 
@@ -193,6 +205,7 @@ technique Draw
     pass Pass1
     {
         PixelShader = compile ps_3_0 PixelShaderFunction_Draw();
+		VertexShader = compile vs_3_0 SpriteVertexShader();
     }
 }
 

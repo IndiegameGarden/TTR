@@ -45,6 +45,7 @@ namespace TTR.gameobj
             //LoadTexture("grid");
 
             //centerParam.SetValue(new Vector2(0.5f, 0.1f)); // test
+            VertexShaderInit(effect);
         }
 
         protected override void OnUpdate(ref UpdateParams p)

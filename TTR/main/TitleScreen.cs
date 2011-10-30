@@ -22,15 +22,15 @@ namespace TTR.main
         {
             testTxt = new SubtitleText("TT1 title screen");
             Add(testTxt);
-
-            GoLEffect gol = new GoLEffect("ttlogo-gol2");
+            
+            GoLEffect gol = new GoLEffect("ttlogo-gol");
             gol.LayerDepth = 0f;
             gol.Position = new Vector2(0.6f, 0.4f);
             gol.Scale = 4.0f;
             gol.Rotate = 0.0f;
             gol.Add(new PeriodicPulsingBehavior(0.05f, 140f/60f/16f)); // 140 / 60 * 1/16
             Add(gol);
-            
+           
         }
 
         protected override void OnInit()

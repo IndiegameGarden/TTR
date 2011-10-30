@@ -48,6 +48,7 @@ namespace TTR.gameobj
             effDoGolUpdate = eff.Parameters["DoGolUpdate"];
             effDeltaPixelX.SetValue(1f/((float)texture.Width));
             effDeltaPixelY.SetValue(1f / ((float)texture.Height));
+            VertexShaderInit(eff);
 
             renderBufInput = new RenderTarget2D(spriteBatch.GraphicsDevice, texture.Width, texture.Height);
             renderBufOutput = new RenderTarget2D(spriteBatch.GraphicsDevice, texture.Width, texture.Height);
