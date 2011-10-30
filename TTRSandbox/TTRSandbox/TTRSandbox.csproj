@@ -110,7 +110,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="TTRGame.cs" />
+    <Compile Include="TTRSandbox.cs" />
     <Compile Include="TTRShaderTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +118,18 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\TTengine\TTengine\TTengine.csproj">
+      <Project>{616035D5-3927-44CD-BD41-2EEE846AC3A3}</Project>
+      <Name>TTengine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TTMusicEngine\TTMusicEngine.csproj">
+      <Project>{CB99D0C9-FD0E-4B90-91BD-7D5816B38A2C}</Project>
+      <Name>TTMusicEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TTR\TTR.csproj">
+      <Project>{6B9F800E-0B4A-4D04-9EEC-1AA0340E212C}</Project>
+      <Name>TTR</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TTRSandboxContent\TTRSandboxContent.contentproj">
       <Name>TTRSandboxContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

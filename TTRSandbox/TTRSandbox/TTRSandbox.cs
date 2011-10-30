@@ -27,7 +27,7 @@ using TTengine.util;
 
 namespace TTR
 {
-    public class TTRGame : Game
+    public class TTRSandbox : Game
     {
         
         public GraphicsDeviceManager graphics;
@@ -44,7 +44,7 @@ namespace TTR
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         public static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
 
-        public TTRGame()
+        public TTRSandbox()
         {
             Content.RootDirectory = "Content";
 
@@ -87,7 +87,7 @@ namespace TTR
             
             toplevelScreen.Add(physicsModel);
             toplevelScreen.Add(new FrameRateCounter(1.0f, 0f));
-            physicsModel.Add(new TTRStateMachine());
+            //physicsModel.Add(new TTRStateMachine());
             treeRoot = toplevelScreen;
 
             TTengineMaster.Initialize(treeRoot);
@@ -155,13 +155,6 @@ namespace TTR
             
             // then draw other (if any) game components on the screen
             base.Draw(gameTime);
-
-            // log
-#if TIMELOGGING_ENABLED
-            double dt = gameTime.ElapsedGameTime.TotalMilliseconds;
-            Util.Log("Draw() gt.tot.ts= " + String.Format("{0,7:0.000}", gameTime.TotalGameTime.TotalSeconds) + "                        gt.elap.tms= " +
-                String.Format("{0,5:0.00}", dt) + "\n");
-#endif
 
         }
 

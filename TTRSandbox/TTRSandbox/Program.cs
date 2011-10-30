@@ -9,7 +9,7 @@ namespace TTR
     {
         static void Main(string[] args)
         {
-            using (Game game = new TTRGame())
+            using (Game game = new TTRSandbox())
             //using (Game game = new TTRShaderTest())
             {
                 game.Run();
