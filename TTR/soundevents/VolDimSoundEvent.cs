@@ -7,7 +7,7 @@ using System.Text;
 using TTMusicEngine;
 using TTR.gameobj;
 using TTR.main;
-using TTengine;
+using TTengine.Core;
 
 namespace TTR.soundevents
 {

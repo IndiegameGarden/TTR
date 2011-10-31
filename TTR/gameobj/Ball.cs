@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
-using TTengine;
+using TTengine.Core;
 using TTR.main;
 
 namespace TTR.gameobj

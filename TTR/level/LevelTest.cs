@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using TTMusicEngine;
+using TTengine.Core;
 using TTR.gameobj;
 using TTR.main;
 using TTR.soundevents;
@@ -24,7 +25,7 @@ namespace TTR.level
         {
         }
 
-        protected override void OnUpdate(ref TTengine.UpdateParams p)
+        protected override void OnUpdate(ref UpdateParams p)
         {
             base.OnUpdate(ref p);
         }

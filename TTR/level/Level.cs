@@ -11,7 +11,7 @@ using TTMusicEngine;
 using TTR.gameobj;
 using TTR.level;
 using TTR.main;
-using TTengine;
+using TTengine.Core;
 
 namespace TTR
 {

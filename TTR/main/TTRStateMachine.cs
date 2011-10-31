@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Input;
 
-using TTengine;
-using TTengine.util;
+using TTengine.Core;
+using TTengine.Util;
 using TTR.level;
 
 namespace TTR.main

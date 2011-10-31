@@ -4,6 +4,7 @@ using System.Threading;
 using Microsoft.Xna.Framework;
 
 using TTengine;
+using TTengine.Core;
 using TTR.gameobj;
 using TTR.main;
 

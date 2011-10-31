@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 
 using TTengine;
+using TTengine.Core;
 using TTR.main;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

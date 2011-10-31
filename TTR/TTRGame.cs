@@ -23,7 +23,8 @@ using TTR.level;
 using TTR.gameobj;
 using TTR.main;
 using TTengine;
-using TTengine.util;
+using TTengine.Core;
+using TTengine.Util;
 
 namespace TTR
 {

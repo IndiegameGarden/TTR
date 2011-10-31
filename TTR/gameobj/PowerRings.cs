@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using TTengine;
+using TTengine.Core;
 using TTR.main;
 
 namespace TTR.gameobj

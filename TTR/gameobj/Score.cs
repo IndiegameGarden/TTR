@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using TTengine;
+using TTengine.Core;
 using TTR.main;
 
 namespace TTR.gameobj

@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
-using TTengine;
+using TTengine.Core;
 using TTR.gameobj;
 
 namespace TTR.main
