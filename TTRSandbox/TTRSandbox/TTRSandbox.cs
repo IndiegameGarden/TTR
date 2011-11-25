@@ -7,7 +7,6 @@
 //#define TIMELOGGING_ENABLED
 
 using System;
-using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -23,7 +22,8 @@ using TTR.level;
 using TTR.gameobj;
 using TTR.main;
 using TTengine;
-using TTengine.util;
+using TTengine.Core;
+using TTengine.Util;
 
 namespace TTR
 {
@@ -40,9 +40,6 @@ namespace TTR
         public Gamelet treeRoot;
         public Gamelet titleScreen;
         public SpriteBatch spriteBatch;
-
-        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        public static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
 
         public TTRSandbox()
         {
@@ -102,7 +99,7 @@ namespace TTR
 
             if (musicEngine != null && !musicEngine.Initialized)
             {
-                MessageBox(new IntPtr(0), "Error - FMOD DLL not found or unable to initialize", "TTR", 0); // TODO name of window set
+                MsgBox.Show("TTR", "Error - FMOD DLL not found or unable to initialize");
                 this.Exit();
                 return;
             }            
