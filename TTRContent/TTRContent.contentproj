@@ -302,11 +302,6 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
     </Compile>
-    <Compile Include="Effects\GoL_LQ.fx">
-      <Name>GoL_LQ</Name>
-      <Importer>EffectImporter</Importer>
-      <Processor>EffectProcessor</Processor>
-    </Compile>
     <Compile Include="Effects\MandelBackground.fx">
       <Name>MandelBackground</Name>
       <Importer>EffectImporter</Importer>

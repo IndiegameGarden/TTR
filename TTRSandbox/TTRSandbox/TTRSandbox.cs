@@ -38,7 +38,8 @@ namespace TTR
         public Screenlet toplevelScreen;
         // treeRoot is a pointer, set to the top-level Gamelet to render
         public Gamelet treeRoot;
-        public Gamelet titleScreen;
+        //public Gamelet titleScreen;
+        public Gamelet gameletsRoot;
         public SpriteBatch spriteBatch;
 
         public TTRSandbox()
@@ -86,8 +87,7 @@ namespace TTR
             toplevelScreen.Add(new FrameRateCounter(1.0f, 0f));
             //physicsModel.Add(new TTRStateMachine());
             treeRoot = toplevelScreen;
-
-            TTengineMaster.Initialize(treeRoot);
+            gameletsRoot = physicsModel;
 
             // finally call base to enumnerate all (gfx) Game components to init
             base.Initialize();
@@ -102,7 +102,15 @@ namespace TTR
                 MsgBox.Show("TTR", "Error - FMOD DLL not found or unable to initialize");
                 this.Exit();
                 return;
-            }            
+            }
+
+            // HERE TEST CONTENT FOR SANDBOX
+            TestGOLLogo();
+
+            // ends with engine init
+            TTengineMaster.Initialize(treeRoot);
+
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -152,6 +160,18 @@ namespace TTR
             
             // then draw other (if any) game components on the screen
             base.Draw(gameTime);
+
+        }
+
+        protected void TestGOLLogo()
+        {
+            GoLEffect gol = new GoLEffect("ttlogo-gol");
+            gol.LayerDepth = 0f;
+            gol.Position = new Vector2(0.6f, 0.4f);
+            gol.Scale = 1.0f;
+            gol.Rotate = 0.0f;
+            gol.Add(new PeriodicPulsingBehavior(0.05f, 140f / 60f / 16f)); // 140 / 60 * 1/16
+            gameletsRoot.Add(gol);
 
         }
 
