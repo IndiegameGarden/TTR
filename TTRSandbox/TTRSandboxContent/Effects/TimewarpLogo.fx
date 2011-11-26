@@ -10,15 +10,21 @@ float Time = 0.0;
 sampler TextureSampler : register(s0) = 
 sampler_state
 {
-    AddressU = Wrap; // can use Clamp, or Wrap for different fx
-    AddressV = Wrap;
+    AddressU = Clamp; // can use Clamp, or Wrap for different fx
+    AddressV = Clamp;
 };
+
 
 // pixshader function
 float4 PS_Draw(float2 texCoord : TEXCOORD0) : COLOR0
 {
-	float2 x = texCoord + noise(Time);
-	return tex2D(TextureSampler, x); 
+	float vel = 0.1 * (  sin( 30.344 * texCoord.y ));
+	float2 dx = float2( (Time * vel) % 1, 0 );
+	float2 x = texCoord + dx;
+	float4 r = 0.5 * tex2D(TextureSampler, x);
+	if ( r.r > 0)
+	   r  += 0.5 * tex2D(TextureSampler,texCoord); 
+	return r;
 }
 
 // see http://forums.create.msdn.com/forums/p/71866/438467.aspx

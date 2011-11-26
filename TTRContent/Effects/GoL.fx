@@ -173,8 +173,8 @@ technique Update
 {
     pass Pass1
     {
-        PixelShader = compile ps_3_0 PS_Update();
-		VertexShader = compile vs_3_0 SpriteVertexShader();
+        PixelShader = compile ps_2_0 PS_Update();
+		VertexShader = compile vs_2_0 SpriteVertexShader();
     }
 }
 

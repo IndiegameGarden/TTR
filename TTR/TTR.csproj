@@ -136,6 +136,7 @@
     <Compile Include="gameobj\NRGcharge.cs" />
     <Compile Include="gameobj\PowerRings.cs" />
     <Compile Include="gameobj\SubtitleText.cs" />
+    <Compile Include="gameobj\TimewarpLogo.cs" />
     <Compile Include="level\LevelIntro.cs" />
     <Compile Include="level\LevelSelect.cs" />
     <Compile Include="level\LevelTest.cs" />

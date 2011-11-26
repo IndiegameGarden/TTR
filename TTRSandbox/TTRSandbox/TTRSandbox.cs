@@ -106,6 +106,7 @@ namespace TTR
 
             // HERE TEST CONTENT FOR SANDBOX
             TestGOLLogo();
+            TestTimewarpLogo();
 
             // ends with engine init
             TTengineMaster.Initialize(treeRoot);
@@ -175,5 +176,12 @@ namespace TTR
 
         }
 
+        protected void TestTimewarpLogo()
+        {
+            TimewarpLogo l = new TimewarpLogo("timewarp_logo_bw");
+            l.Position = new Vector2(0.7f, 0.5f);
+            l.LayerDepth = 0f;
+            gameletsRoot.Add(l);
+        }
     }
 }
