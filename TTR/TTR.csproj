@@ -123,6 +123,7 @@
     <Compile Include="gameobj\BallBallCollisionBehavior.cs" />
     <Compile Include="gameobj\BallShipCollisionBehavior.cs" />
     <Compile Include="gameobj\BoomDepthEffect.cs" />
+    <Compile Include="gameobj\SineWaveModifier.cs" />
     <Compile Include="gameobj\MandelBackground.cs" />
     <Compile Include="gameobj\GoLEffect.cs" />
     <Compile Include="gameobj\MegaText.cs" />
