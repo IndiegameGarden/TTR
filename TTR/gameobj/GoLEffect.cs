@@ -39,10 +39,7 @@ namespace TTR.gameobj
             needFirstUpdate = true;
 
             spriteBatch = new SpriteBatch(Screen.graphicsDevice);
-            if (!RunningGameState.IsXNAHiDef)
-                eff = TTengineMaster.ActiveGame.Content.Load<Effect>("Effects/GoL_LQ");
-            else
-                eff = TTengineMaster.ActiveGame.Content.Load<Effect>("Effects/GoL");
+            eff = TTengineMaster.ActiveGame.Content.Load<Effect>("Effects/GoL");
             effTime = eff.Parameters["Time"];
             effDeltaPixelX = eff.Parameters["DeltaPixelX"];
             effDeltaPixelY = eff.Parameters["DeltaPixelY"];

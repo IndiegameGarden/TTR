@@ -7,7 +7,6 @@
 //#define TIMELOGGING_ENABLED
 
 using System;
-using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -39,18 +38,9 @@ namespace TTR
         public Screenlet toplevelScreen;
         // treeRoot is a pointer, set to the top-level Gamelet to render
         public Gamelet treeRoot;
-        public Gamelet titleScreen;
+        //public Gamelet titleScreen;
+        public Gamelet gameletsRoot;
         public SpriteBatch spriteBatch;
-
-        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        public static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
-
-        private Model test;
-        private Vector3 Position = Vector3.One; 
-        private float Zoom = 2500;
-        private float RotationY = 0.0f;
-        private float RotationX = 0.0f;
-        private Matrix gameWorldRotation;
 
         public TTRSandbox()
         {
@@ -97,8 +87,7 @@ namespace TTR
             toplevelScreen.Add(new FrameRateCounter(1.0f, 0f));
             //physicsModel.Add(new TTRStateMachine());
             treeRoot = toplevelScreen;
-
-            TTengineMaster.Initialize(treeRoot);
+            gameletsRoot = physicsModel;
 
             // finally call base to enumnerate all (gfx) Game components to init
             base.Initialize();
@@ -110,12 +99,19 @@ namespace TTR
 
             if (musicEngine != null && !musicEngine.Initialized)
             {
-                MessageBox(new IntPtr(0), "Error - FMOD DLL not found or unable to initialize", "TTR", 0); // TODO name of window set
+                MsgBox.Show("TTR", "Error - FMOD DLL not found or unable to initialize");
                 this.Exit();
                 return;
             }
 
-            test = Content.Load<Model>("Ship");
+            // HERE TEST CONTENT FOR SANDBOX
+            TestGOLLogo();
+            TestTimewarpLogo();
+
+            // ends with engine init
+            TTengineMaster.Initialize(treeRoot);
+
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -135,10 +131,6 @@ namespace TTR
             // update params, and call the root gamelet to do all.
             TTengineMaster.Update(gameTime, treeRoot);
 
-            gameWorldRotation =
-         Matrix.CreateRotationX(MathHelper.ToRadians(RotationX)) *
-         Matrix.CreateRotationY(MathHelper.ToRadians(RotationY));
-  
             // update any other XNA components
             base.Update(gameTime);
         }
@@ -153,55 +145,45 @@ namespace TTR
             base.EndDraw();
         }
 
-        private void DrawModel(Model m)
-        {
-            Matrix[] transforms = new Matrix[m.Bones.Count];
-            float aspectRatio = graphics.GraphicsDevice.Viewport.AspectRatio;
-            m.CopyAbsoluteBoneTransformsTo(transforms);
-            Matrix projection =
-                Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),
-                aspectRatio, 1.0f, 10000.0f);
-            Matrix view = Matrix.CreateLookAt(new Vector3(0.0f, 50.0f, Zoom),
-                Vector3.Zero, Vector3.Up);
-
-            foreach (ModelMesh mesh in m.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-
-                    effect.View = view;
-                    effect.Projection = projection;
-                    effect.World = gameWorldRotation *
-                        transforms[mesh.ParentBone.Index] *
-                        Matrix.CreateTranslation(Position);
-                }
-                mesh.Draw();
-            }
-        }
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
             // draw all my gamelet items
-            //GraphicsDevice.SetRenderTarget(null); // TODO
-            //TTengineMaster.Draw(gameTime, treeRoot);
+            GraphicsDevice.SetRenderTarget(null); // TODO
+            TTengineMaster.Draw(gameTime, treeRoot);
 
             // then buffer drawing on screen at right positions                        
-            /*
             GraphicsDevice.SetRenderTarget(null); // TODO
-            //
+            //GraphicsDevice.Clear(Color.Black);
             Rectangle destRect = new Rectangle(0, 0, toplevelScreen.RenderTarget.Width, toplevelScreen.RenderTarget.Height);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
             spriteBatch.Draw(toplevelScreen.RenderTarget, destRect, Color.White);
             spriteBatch.End();
-            */
-            DrawModel(test);
-
+            
             // then draw other (if any) game components on the screen
             base.Draw(gameTime);
 
         }
 
+        protected void TestGOLLogo()
+        {
+            GoLEffect gol = new GoLEffect("ttlogo-gol");
+            gol.LayerDepth = 0f;
+            gol.Position = new Vector2(0.6f, 0.4f);
+            gol.Scale = 1.0f;
+            gol.Rotate = 0.0f;
+            gol.Add(new PeriodicPulsingBehavior(0.05f, 140f / 60f / 16f)); // 140 / 60 * 1/16
+            gameletsRoot.Add(gol);
+
+        }
+
+        protected void TestTimewarpLogo()
+        {
+            TimewarpLogo l = new TimewarpLogo("timewarp_logo_bw");
+            l.Position = new Vector2(0.7f, 0.5f);
+            l.LayerDepth = 0f;
+            l.Add(new SineWaveModifier(delegate(float val) { l.ScaleModifier = val; }, 0.1f, 0.189f, 1f));
+            gameletsRoot.Add(l);
+        }
     }
 }
+>>>>>>> 6603ac9475fdc9367e0d47a8654e38aeec37cf26

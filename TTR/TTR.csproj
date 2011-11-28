@@ -123,6 +123,7 @@
     <Compile Include="gameobj\BallBallCollisionBehavior.cs" />
     <Compile Include="gameobj\BallShipCollisionBehavior.cs" />
     <Compile Include="gameobj\BoomDepthEffect.cs" />
+    <Compile Include="gameobj\SineWaveModifier.cs" />
     <Compile Include="gameobj\MandelBackground.cs" />
     <Compile Include="gameobj\GoLEffect.cs" />
     <Compile Include="gameobj\MegaText.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="gameobj\NRGcharge.cs" />
     <Compile Include="gameobj\PowerRings.cs" />
     <Compile Include="gameobj\SubtitleText.cs" />
+    <Compile Include="gameobj\TimewarpLogo.cs" />
     <Compile Include="level\LevelIntro.cs" />
     <Compile Include="level\LevelSelect.cs" />
     <Compile Include="level\LevelTest.cs" />
