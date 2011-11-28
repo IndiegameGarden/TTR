@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 
 using TTMusicEngine;
+using TTMusicEngine.Soundevents;
 using TTR.gameobj;
 using TTR.main;
 using TTengine.Core;

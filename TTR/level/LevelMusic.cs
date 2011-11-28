@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 using TTMusicEngine;
+using TTMusicEngine.Soundevents;
 using TTengine.Core;
 using TTR.main;
 using TTR.gameobj;

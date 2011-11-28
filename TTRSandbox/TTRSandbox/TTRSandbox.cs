@@ -23,7 +23,8 @@ using TTR.level;
 using TTR.gameobj;
 using TTR.main;
 using TTengine;
-using TTengine.util;
+using TTengine.Core;
+using TTengine.Util;
 
 namespace TTR
 {
@@ -43,6 +44,13 @@ namespace TTR
 
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         public static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
+
+        private Model test;
+        private Vector3 Position = Vector3.One; 
+        private float Zoom = 2500;
+        private float RotationY = 0.0f;
+        private float RotationX = 0.0f;
+        private Matrix gameWorldRotation;
 
         public TTRSandbox()
         {
@@ -105,7 +113,9 @@ namespace TTR
                 MessageBox(new IntPtr(0), "Error - FMOD DLL not found or unable to initialize", "TTR", 0); // TODO name of window set
                 this.Exit();
                 return;
-            }            
+            }
+
+            test = Content.Load<Model>("Ship");
         }
 
         protected override void Update(GameTime gameTime)
@@ -125,6 +135,10 @@ namespace TTR
             // update params, and call the root gamelet to do all.
             TTengineMaster.Update(gameTime, treeRoot);
 
+            gameWorldRotation =
+         Matrix.CreateRotationX(MathHelper.ToRadians(RotationX)) *
+         Matrix.CreateRotationY(MathHelper.ToRadians(RotationY));
+  
             // update any other XNA components
             base.Update(gameTime);
         }
@@ -139,20 +153,51 @@ namespace TTR
             base.EndDraw();
         }
 
+        private void DrawModel(Model m)
+        {
+            Matrix[] transforms = new Matrix[m.Bones.Count];
+            float aspectRatio = graphics.GraphicsDevice.Viewport.AspectRatio;
+            m.CopyAbsoluteBoneTransformsTo(transforms);
+            Matrix projection =
+                Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),
+                aspectRatio, 1.0f, 10000.0f);
+            Matrix view = Matrix.CreateLookAt(new Vector3(0.0f, 50.0f, Zoom),
+                Vector3.Zero, Vector3.Up);
+
+            foreach (ModelMesh mesh in m.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+
+                    effect.View = view;
+                    effect.Projection = projection;
+                    effect.World = gameWorldRotation *
+                        transforms[mesh.ParentBone.Index] *
+                        Matrix.CreateTranslation(Position);
+                }
+                mesh.Draw();
+            }
+        }
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
             // draw all my gamelet items
-            GraphicsDevice.SetRenderTarget(null); // TODO
-            TTengineMaster.Draw(gameTime, treeRoot);
+            //GraphicsDevice.SetRenderTarget(null); // TODO
+            //TTengineMaster.Draw(gameTime, treeRoot);
 
             // then buffer drawing on screen at right positions                        
+            /*
             GraphicsDevice.SetRenderTarget(null); // TODO
-            //GraphicsDevice.Clear(Color.Black);
+            //
             Rectangle destRect = new Rectangle(0, 0, toplevelScreen.RenderTarget.Width, toplevelScreen.RenderTarget.Height);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
             spriteBatch.Draw(toplevelScreen.RenderTarget, destRect, Color.White);
             spriteBatch.End();
-            
+            */
+            DrawModel(test);
+
             // then draw other (if any) game components on the screen
             base.Draw(gameTime);
 
