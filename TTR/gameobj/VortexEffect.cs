@@ -13,7 +13,7 @@ using TTengine.Core;
 namespace TTR.gameobj
 {
     /**
-     * A shader vortext eff. A vortex eff is any shader eff having a Position, to set the focal point of the eff ; 
+     * A shader vortext effect. A vortex eff is any shader eff having a Position, to set the focal point of the eff ; 
      * a VortexVelocity, to set the speed of the vortex. Use NoiseLevel to set the level of noise for the eff (how noise is
      * used, is eff specific!)
      * Use Velocity and Acceleration to manipulate the focal point as with any Gamelet.

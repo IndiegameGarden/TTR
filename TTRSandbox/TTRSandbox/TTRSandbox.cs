@@ -24,6 +24,7 @@ using TTR.main;
 using TTengine;
 using TTengine.Core;
 using TTengine.Util;
+using TTengine.Modifiers;
 
 namespace TTR
 {
@@ -181,9 +182,9 @@ namespace TTR
             TimewarpLogo l = new TimewarpLogo("timewarp_logo_bw");
             l.Position = new Vector2(0.7f, 0.5f);
             l.LayerDepth = 0f;
-            l.Add(new SineWaveModifier(delegate(float val) { l.ScaleModifier = val; }, 0.1f, 0.189f, 1f));
+            l.Add(new SineModifier(delegate(float val) { l.ScaleModifier = val; }, 0.1f, 0.189f, 1f));
+            l.Add(new SineModifier(delegate(float val) { l.RotateModifier = val; }, 0.04f, 0.389f, 0f));
             gameletsRoot.Add(l);
         }
     }
 }
->>>>>>> 6603ac9475fdc9367e0d47a8654e38aeec37cf26

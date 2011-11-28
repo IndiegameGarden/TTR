@@ -11,6 +11,9 @@ using TTengine.Core;
 
 namespace TTR.gameobj
 {
+    /**
+     * Efflet to shake the entire screen e.g. for explosion effects
+     */
     public class ScreenShake: Efflet
     {
         protected float amplx, amply, freq;

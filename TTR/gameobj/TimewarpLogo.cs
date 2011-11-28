@@ -9,13 +9,11 @@ using TTengine.Core;
 
 namespace TTR.gameobj
 {
-    public class TimewarpLogo: Spritelet
-    {
-        Effect eff;
-        SpriteBatch spriteBatch;
+    public class TimewarpLogo: EffectSpritelet
+    {    
         EffectParameter effTime;
 
-        public TimewarpLogo(String fileName): base(fileName)
+        public TimewarpLogo(String fileName): base(fileName,"Effects/TimewarpLogo")
         {
         }
 
@@ -23,11 +21,8 @@ namespace TTR.gameobj
         {
             base.OnInit();
             //Texture2D texture = Texture;
-
-            spriteBatch = new SpriteBatch(Screen.graphicsDevice);
-            eff = TTengineMaster.ActiveGame.Content.Load<Effect>("Effects/TimewarpLogo");
             effTime = eff.Parameters["Time"];
-            VertexShaderInit(eff);
+            spriteSortMode = SpriteSortMode.Deferred;
         }
 
         protected override void OnUpdate(ref UpdateParams p)
@@ -36,16 +31,6 @@ namespace TTR.gameobj
 
             effTime.SetValue(p.simTime);
         }
-
-
-        protected override void OnDraw(ref DrawParams p)
-        {
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, eff);
-            spriteBatch.Draw(Texture, Screen.ToPixels(DrawPosition), null, DrawColor,
-                   RotateAbsolute, DrawCenter, DrawScale, SpriteEffects.None, LayerDepth);
-            spriteBatch.End();
-
-        }        
 
     }
 }
