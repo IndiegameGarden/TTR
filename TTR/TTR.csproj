@@ -127,7 +127,6 @@
     <Compile Include="gameobj\GoLEffect.cs" />
     <Compile Include="gameobj\MegaText.cs" />
     <Compile Include="gameobj\NrgBar.cs" />
-    <Compile Include="gameobj\PeriodicPulsingBehavior.cs" />
     <Compile Include="gameobj\PlanetTexture.cs" />
     <Compile Include="gameobj\Score.cs" />
     <Compile Include="gameobj\ScreenShake.cs" />

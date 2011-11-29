@@ -173,7 +173,7 @@ namespace TTR
             gol.Position = new Vector2(0.6f, 0.4f);
             gol.Scale = 1.0f;
             gol.Rotate = 0.0f;
-            gol.Add(new PeriodicPulsingBehavior(0.05f, 140f / 60f / 16f)); // 140 / 60 * 1/16
+            gol.Add(new SineModifier(delegate(float val) { gol.ScaleModifier *= val;  }, 0.05f, 140f / 60f / 16f)); // 140 / 60 * 1/16
             gameletsRoot.Add(gol);
 
         }
@@ -183,8 +183,9 @@ namespace TTR
             TimewarpLogo l = new TimewarpLogo("timewarp_logo_bw");
             l.Position = new Vector2(0.7f, 0.5f);
             l.LayerDepth = 0f;
-            l.Add(new SineModifier(delegate(float val) { l.ScaleModifier = val; }, 0.1f, 0.189f, 1f));
-            l.Add(new SineModifier(delegate(float val) { l.RotateModifier = val; }, 0.04f, 0.389f, 0f));
+            l.Add(new SineModifier(delegate(float val) { l.ScaleModifier *= val; }, 0.1f, 0.189f, 1f));
+            l.Add(new SineModifier(delegate(float val) { l.RotateModifier += val; l.ScaleModifier *= (1+4*val);  }, 0.04f, 0.389f, 0f));
+            l.Add(new MyFuncyModifier(delegate(float t) { l.PositionModifier.X += (float)Math.Sqrt(t/10f); } , 3f,5f));
             gameletsRoot.Add(l);
         }
 
@@ -192,7 +193,7 @@ namespace TTR
         {
             VortexEffect ve = new VortexEffect("Effects/CurvedVortex", "clouds");
             ve.Position = new Vector2(0.2f, 0.5f);
-            ve.VortexVelocity = 0.05f;
+            ve.VortexVelocity = 0.123f;
             ve.NoiseLevel = 0.05f;
             ve.Duration = 25f;
             ve.LayerDepth = 0.9f;

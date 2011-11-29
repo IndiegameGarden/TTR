@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
 using TTengine.Core;
+using TTengine.Modifiers;
 using TTR.gameobj;
 
 namespace TTR.main
@@ -28,7 +29,7 @@ namespace TTR.main
             gol.Position = new Vector2(0.6f, 0.4f);
             gol.Scale = 4.0f;
             gol.Rotate = 0.0f;
-            gol.Add(new PeriodicPulsingBehavior(0.05f, 140f/60f/16f)); // 140 / 60 * 1/16
+            gol.Add(new SineModifier(delegate(float val) { gol.ScaleModifier *= val; }, 0.05f, 140f / 60f / 16f)); // 140 / 60 * 1/16
             Add(gol);
            
         }
