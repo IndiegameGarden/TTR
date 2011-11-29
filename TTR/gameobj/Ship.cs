@@ -107,7 +107,7 @@ namespace TTR.gameobj
         {
             if (item is Ball)
             {
-                float itemR = item.RadiusAbsolute;
+                float itemR = item.RadiusAbsolute * (item as Ball).CollisionScale;
                 Vector2 itemPos = item.PositionAbsolute;
                 Vector2 pos = PositionAbsolute;
                 float ytop = pos.Y - HeightAbsolute / 2;

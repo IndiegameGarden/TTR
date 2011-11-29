@@ -173,7 +173,7 @@ namespace TTR.level
 
         Ball crBall(float y, float spd)
         {
-            Ball b = new Ball("ball-titan"); //, new Vector2(2.1f, y), new Vector2(collideXposDefault, y), spd);
+            Ball b = new Ball("ball-supernova"); //, new Vector2(2.1f, y), new Vector2(collideXposDefault, y), spd);
             b.Position = new Vector2(2.1f, y);
             float collideXposDefault = ship.Position.X + ship.WidthAbsolute / 2 + b.RadiusAbsolute;
             b.TargetPosition = new Vector2(collideXposDefault, y);

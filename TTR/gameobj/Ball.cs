@@ -14,6 +14,8 @@ namespace TTR.gameobj
     public class Ball : Spritelet
     {
         public float Mass = 1f;
+        public float CollisionScale = 0.2f;
+
         public NRGcharge nrgCharge = null;
         public int NrShipCollides = 0;
 
@@ -25,6 +27,7 @@ namespace TTR.gameobj
         protected override void OnInit()
         {
             base.OnInit();
+
             ChecksCollisions = true;
             LayerDepth = 0.5f + (float)ID * 0.0001f;
         }
@@ -101,7 +104,10 @@ namespace TTR.gameobj
             }
             if (item is Ball)
             {
-                return base.CollidesWith(item);
+                if ((PositionAbsolute - item.PositionAbsolute).Length() < CollisionScale * (RadiusAbsolute + item.RadiusAbsolute))
+                    return true;
+                else
+                    return false;
             }
             return false;
         }
