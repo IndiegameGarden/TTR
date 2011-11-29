@@ -22,6 +22,7 @@ float4 PS_Draw(float2 texCoord : TEXCOORD0) : COLOR0
 	float2 dx = float2( (Time * vel) % 1, 0 );
 	float2 x = texCoord + dx;
 	float4 r = tex2D(TextureSampler, texCoord);
+	r.a = 1.0;
 	if ( r.r > 0)
 	   r  =  tex2D(TextureSampler, x); 
 	return r;

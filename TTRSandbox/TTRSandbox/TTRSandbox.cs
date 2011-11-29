@@ -108,6 +108,7 @@ namespace TTR
             // HERE TEST CONTENT FOR SANDBOX
             TestGOLLogo();
             TestTimewarpLogo();
+            TestVortexEffect();
 
             // ends with engine init
             TTengineMaster.Initialize(treeRoot);
@@ -168,7 +169,7 @@ namespace TTR
         protected void TestGOLLogo()
         {
             GoLEffect gol = new GoLEffect("ttlogo-gol");
-            gol.LayerDepth = 0f;
+            gol.LayerDepth = 0.5f;
             gol.Position = new Vector2(0.6f, 0.4f);
             gol.Scale = 1.0f;
             gol.Rotate = 0.0f;
@@ -185,6 +186,19 @@ namespace TTR
             l.Add(new SineModifier(delegate(float val) { l.ScaleModifier = val; }, 0.1f, 0.189f, 1f));
             l.Add(new SineModifier(delegate(float val) { l.RotateModifier = val; }, 0.04f, 0.389f, 0f));
             gameletsRoot.Add(l);
+        }
+
+        protected void TestVortexEffect()
+        {
+            VortexEffect ve = new VortexEffect("Effects/CurvedVortex", "clouds");
+            ve.Position = new Vector2(0.2f, 0.5f);
+            ve.VortexVelocity = 0.05f;
+            ve.NoiseLevel = 0.05f;
+            ve.Duration = 25f;
+            ve.LayerDepth = 0.9f;
+            //ve.Scale = 0.3f;
+            gameletsRoot.Add(ve);
+
         }
     }
 }
