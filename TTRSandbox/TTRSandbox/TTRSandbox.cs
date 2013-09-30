@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -25,6 +26,7 @@ using TTR.main;
 using TTengine.Core;
 using TTengine.Util;
 using TTengine.Modifiers;
+using System.Diagnostics;
 
 namespace TTR
 {
@@ -106,9 +108,10 @@ namespace TTR
             }
 
             // HERE TEST CONTENT FOR SANDBOX
-            TestGOLLogo();
-            TestTimewarpLogo();
+            //TestGOLLogo();
+            //TestTimewarpLogo();
             TestVortexEffect();
+            TestRotatingBall();
 
             // ends with engine init
             TTengineMaster.Initialize(treeRoot);
@@ -128,6 +131,10 @@ namespace TTR
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) )
             {
                 this.Exit();
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
             }
 
             // update params, and call the root gamelet to do all.
@@ -191,7 +198,7 @@ namespace TTR
 
         protected void TestVortexEffect()
         {
-            VortexEffect ve = new VortexEffect("Effects/CurvedVortex", "clouds");
+            VortexEffect ve = new VortexEffect("Effects/CurvedVortex", "ball-supernova2");
             ve.Position = new Vector2(0.2f, 0.5f);
             ve.VortexVelocity = 0.123f;
             ve.NoiseLevel = 0.05f;
@@ -201,5 +208,15 @@ namespace TTR
             gameletsRoot.Add(ve);
 
         }
+
+        protected void TestRotatingBall()
+        {
+            Spritelet b = new Spritelet("ball-supernova2");
+            b.Position = new Vector2(0.6f, 0.5f);
+            b.LayerDepth = 0.91f;
+            b.Add(new MyFuncyModifier(delegate(float t) { b.RotateModifier += t / 10f; }));
+            gameletsRoot.Add(b);
+        }
+
     }
 }
