@@ -1,4 +1,4 @@
-// (c) 2010-2011 TranceTrance.com. Distributed under the FreeBSD license in LICENSE.txt
+
 ﻿#region File Description
 //-----------------------------------------------------------------------------
 // RandomMath.cs
