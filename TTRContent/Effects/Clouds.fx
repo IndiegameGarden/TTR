@@ -1,4 +1,4 @@
-// (c) 2010-2011 TranceTrance.com. Distributed under the FreeBSD license in LICENSE.txt
+// (c) 2010-2014 IndiegameGarden.com. Distributed under the FreeBSD license in LICENSE.txt
 
 // the relative position for the texture coordinates, inducing a slight parallax
 float2 Position;

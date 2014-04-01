@@ -1,4 +1,4 @@
-// (c) 2010-2011 TranceTrance.com. Distributed under the FreeBSD license in LICENSE.txt
+// (c) 2010-2014 IndiegameGarden.com. Distributed under the FreeBSD license in LICENSE.txt
 /**
  * A texture depth/stretch effect. It can be set to different depths along the x and/or y
  * axes. Zero depth on an axis means no effect is applied.

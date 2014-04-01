@@ -1,4 +1,4 @@
-// (c) 2010-2011 TranceTrance.com. Distributed under the FreeBSD license in LICENSE.txt
+// (c) 2010-2014 IndiegameGarden.com. Distributed under the FreeBSD license in LICENSE.txt
 
 /*
  * a texture that zooms in from a point somewhere on screen

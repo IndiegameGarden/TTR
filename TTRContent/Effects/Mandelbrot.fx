@@ -1,4 +1,4 @@
-// (c) 2010-2011 TranceTrance.com. Distributed under the FreeBSD license in LICENSE.txt
+// (c) 2010-2014 IndiegameGarden.com. Distributed under the FreeBSD license in LICENSE.txt
 // from http://blog.nostatic.org/2009/09/fractal-rendering-on-gpu-mandelbrot-and.html
 
 // vertex shader input, http://forums.create.msdn.com/forums/p/71866/438467.aspx
