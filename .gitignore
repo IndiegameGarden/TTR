@@ -5,10 +5,6 @@ obj
 *.cachefile
 *.suo
 *.user
-*.png
-*.jpg
-fmod
-fmodp.cs
-Thumbs.db
+thumbs.db
 # mstest test results
 TestResults

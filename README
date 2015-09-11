@@ -1,11 +1,6 @@
 
-TTR is the first game by TranceTrance codenamed 'TTR'. It uses the TTengine
-XNA 4.0 2D game engine as a basis.
-For more information go to http://www.trancetrance.com/
-For TTengine latest code https://github.com/trancetrance/TTengine
+TTR: game based on TTengine.
 
-Distributed under a FreeBSD license. For license conditions see LICENSE.txt 
+Distributed under a FreeBSD license. For license conditions see LICENSE.txt
 and the copyright notice in source files. Some files may be subject to
 other licenses, see each file header for license information per source file.
-
-Requires currently the FMOD audio library for C# http://www.fmod.org/
